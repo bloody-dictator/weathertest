@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GismeteoPage extends BasePage {
-    public static ArrayList<String>gismeteoTemps = new ArrayList<String>();
+    public static ArrayList<String> gismeteoTemps = new ArrayList<String>();
 
     @FindBy(xpath = "//input[@type='search']")
     private WebElement inputSearch;
@@ -18,18 +18,18 @@ public class GismeteoPage extends BasePage {
     @FindBy(xpath = "//div[@class='maxt']/span[contains(@class, 'unit_temperature_c')]")
     private List<WebElement> tempValue;
 
-     @FindBy(xpath = "//a[contains(text(), '10 дней')]")
-     private WebElement tenDays;
+    @FindBy(xpath = "//a[contains(text(), '10 дней')]")
+    private WebElement tenDays;
 
     public List<WebElement> getTempValue() {
         return tempValue;
     }
 
-    public GismeteoPage(WebDriver driver){
+    public GismeteoPage(WebDriver driver) {
         super(driver);
     }
 
-    public GismeteoPage typeSeachcity(String city){
+    public GismeteoPage typeSeachcity(String city) {
         inputSearch.sendKeys(city);
         try {
             Thread.sleep(1000);
@@ -40,17 +40,17 @@ public class GismeteoPage extends BasePage {
         return this;
     }
 
-    public GismeteoPage clickTenDays(){
+    public GismeteoPage clickTenDays() {
         tenDays.click();
         return this;
     }
 
-    public List<String> getTextTemp(List<WebElement>temps){
+    public List<String> getTextTemp(List<WebElement> temps) {
         int i = 0;
-        for (WebElement temp: temps){
+        for (WebElement temp : temps) {
             gismeteoTemps.add(temp.getText());
             i++;
-            if(i==7){
+            if (i == 7) {
                 break;
             }
         }

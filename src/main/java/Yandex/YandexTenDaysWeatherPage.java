@@ -21,16 +21,16 @@ public class YandexTenDaysWeatherPage extends BasePage {
         return dayTemps;
     }
 
-    public YandexTenDaysWeatherPage(WebDriver driver){
+    public YandexTenDaysWeatherPage(WebDriver driver) {
         super(driver);
     }
 
-    public List<String> getDayTemp(List<WebElement> dayTemps){
+    public List<String> getDayTemp(List<WebElement> dayTemps) {
         int i = 0;
-        for(WebElement dayTemp: dayTemps){
+        for (WebElement dayTemp : dayTemps) {
             yandexTemps.add(dayTemp.getText().substring(0, dayTemp.getText().indexOf('°')));
             i++;
-            if (i==7){
+            if (i == 7) {
                 break;
             }
         }

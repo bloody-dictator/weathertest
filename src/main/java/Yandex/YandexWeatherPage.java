@@ -22,24 +22,23 @@ public class YandexWeatherPage extends BasePage {
     String weatherNameDay = "./a/div[@class='forecast-briefly__name']";
 
 
-
     public List<WebElement> getWeathercards() {
         return weathercards;
     }
 
-    public YandexWeatherPage(WebDriver driver){
+    public YandexWeatherPage(WebDriver driver) {
         super(driver);
     }
 
-    public SearchResultPage typeSearchcity(String city){
+    public SearchResultPage typeSearchcity(String city) {
         inputSearch.sendKeys(city);
         inputSearch.sendKeys(Keys.ENTER);
         return new SearchResultPage(Webdriver.getDriver());
     }
 
-    public YandexTenDaysWeatherPage clickTodayWeather(List<WebElement> weathercards){
-        for (WebElement weathercard: weathercards) {
-            if(weathercard.findElement(By.xpath(weatherNameDay)).getText().equals("Сегодня")){
+    public YandexTenDaysWeatherPage clickTodayWeather(List<WebElement> weathercards) {
+        for (WebElement weathercard : weathercards) {
+            if (weathercard.findElement(By.xpath(weatherNameDay)).getText().equals("Сегодня")) {
                 weathercard.click();
                 break;
             }

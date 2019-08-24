@@ -10,11 +10,11 @@ public class SearchResultPage extends BasePage {
     @FindBy(xpath = "(//li[@class='place-list__item']/a)[1]")
     private WebElement firstSearchResult;
 
-    public void clickFirstSearchResult(){
+    public void clickFirstSearchResult() {
         firstSearchResult.click();
     }
 
-    public SearchResultPage(WebDriver driver){
+    public SearchResultPage(WebDriver driver) {
         super(driver);
     }
 }
